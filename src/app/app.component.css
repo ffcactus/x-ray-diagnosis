@@ -1,0 +1,21 @@
+.x-ray-diagnosis-main {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.x-ray-diagnosis-thing-selector {
+  width: 20em;
+  height: 100%;
+  background-color: antiquewhite;
+  flex-grow: 0;
+}
+
+.x-ray-diagnosis-picture-workplace {
+  background-color: burlywood;
+  flex-grow: 1
+}
