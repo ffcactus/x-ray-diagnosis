@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { DefectArea } from './defect-area';
 
 @Component({
   selector: 'app-picture-editor',
@@ -6,8 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./picture-editor.component.css']
 })
 export class PictureEditorComponent implements OnInit {
+  @Input()
+  imageUrl: string
 
-  constructor() { }
+  height: number
+  width: number
+
+  constructor() {
+    this.imageUrl = './svg-example.svg'
+    this.height = 800;
+    this.width = 1000;
+  }
 
   ngOnInit(): void {
   }
