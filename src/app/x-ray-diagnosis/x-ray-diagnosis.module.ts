@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { PictureEditorComponent } from '../picture-editor/picture-editor.component';
 
 
 
@@ -7,6 +8,7 @@ import { CommonModule } from '@angular/common';
   declarations: [],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [PictureEditorComponent],
 })
 export class XRayDiagnosisModule { }

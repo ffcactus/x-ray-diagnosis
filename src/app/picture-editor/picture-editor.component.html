@@ -3,8 +3,16 @@
        baseProfile="full"
        [attr.width]="width" [attr.height]="height"
        xmlns="http://www.w3.org/2000/svg">
+    <rect height="600" width="800" stroke="red" fill-opacity="0"/>
+    <image href="https://blog.logoraisr.com/content/images/size/w2000/2020/02/svg-logo-h.svg"
+           height="600" width="800"
+           (mouseenter)="onMouseEnter($event)"
+           (mousedown)="onMouseDown($event)"
+           (mouseup)="onMouseUp($event)"
+    />
+    <rect *ngFor="let defectArea of defectAreas" [attr.x]="defectArea.x0" [attr.y]="defectArea.y0"
+          [attr.width]="defectArea.x1 - defectArea.x0" [attr.height]="defectArea.y1 - defectArea.y0" stroke="red"
+          fill-opacity="0"></rect>
 
-    <image href="https://blog.logoraisr.com/content/images/size/w2000/2020/02/svg-logo-h.svg" height="600" width="800"/>
-    <rect height="300" width="300" stroke="red" fill-opacity="0"/>
   </svg>
 </div>
