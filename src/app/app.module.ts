@@ -6,13 +6,17 @@ import { ThingSelectorComponent } from './thing-selector/thing-selector.componen
 import { PictureSelectorComponent } from './picture-selector/picture-selector.component';
 import { PictureEditorComponent } from './picture-editor/picture-editor.component';
 import { MatListModule } from '@angular/material/list';
+import { PictureEditorPanelDefectAreaComponent } from './picture-editor-panel-defect-area/picture-editor-panel-defect-area.component';
+import { PictureEditorPanelComponent } from './picture-editor-panel/picture-editor-panel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ThingSelectorComponent,
     PictureSelectorComponent,
-    PictureEditorComponent
+    PictureEditorComponent,
+    PictureEditorPanelComponent,
+    PictureEditorPanelDefectAreaComponent
   ],
   imports: [
     BrowserModule,

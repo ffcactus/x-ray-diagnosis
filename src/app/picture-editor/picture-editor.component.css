@@ -4,4 +4,15 @@
   bottom: 0;
   left: 0;
   right: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.svg-area {
+  flex-grow: 1;
+  border: 1px double black;
+}
+
+.panel-area {
+  flex-grow: 0;
 }

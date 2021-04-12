@@ -1,7 +1,5 @@
-import { AfterViewInit, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { Component, Input, OnInit } from '@angular/core';
 import { DefectArea } from './defect-area';
-import compileStreaming = WebAssembly.compileStreaming;
 
 @Component({
   selector: 'app-picture-editor',
@@ -41,7 +39,6 @@ export class PictureEditorComponent implements OnInit {
 
   onMouseEnter(e: MouseEvent): void {
     const targetNode = e.currentTarget as HTMLElement;
-    const relatedTarget = e.relatedTarget as HTMLElement;
     this.cursorStyle = targetNode.style.cursor;
     targetNode.style.cursor = 'crosshair';
   }
@@ -52,7 +49,6 @@ export class PictureEditorComponent implements OnInit {
   }
 
   onMouseDown(e: MouseEvent): void {
-
     this.drawing = true;
     const node = e.currentTarget as HTMLElement;
     const rect = node.getBoundingClientRect();
@@ -67,7 +63,7 @@ export class PictureEditorComponent implements OnInit {
     console.info('down', this.drawingDefectArea, this.defectAreas);
   }
 
-  onMouseUp(e: MouseEvent): void {
+  onMouseUp(): void {
     let t = 0;
     this.drawing = false;
     // The drawing rectangle use (x0,y0), (width,height), and we need change it to (x0,y0)(x1,y1)

@@ -1,0 +1,9 @@
+.unselected {
+  color: black;
+  background-color: lightyellow;
+}
+
+.selected {
+  color: white;
+  background-color: blue;
+}

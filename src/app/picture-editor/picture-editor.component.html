@@ -1,14 +1,12 @@
 <div class="picture-editor">
-  <svg #svg id="image"
-       xmlns="http://www.w3.org/2000/svg"
+  <svg class="svg-area" xmlns="http://www.w3.org/2000/svg"
        [attr.width]="width" [attr.height]="height"
        (mouseenter)="onMouseEnter($event)"
        (mouseleave)="onMouseLeave($event)"
        (mousedown)="onMouseDown($event)"
-       (mouseup)="onMouseUp($event)"
+       (mouseup)="onMouseUp()"
        (mousemove)="onMouseMove($event)"
   >
-    <!--    <rect height="600" width="800" stroke="red" fill-opacity="0"/>-->
     <image id="image" href="https://blog.logoraisr.com/content/images/size/w2000/2020/02/svg-logo-h.svg"
            height="600" width="800"
     ></image>
@@ -30,4 +28,5 @@
           fill-opacity="0"
           stroke-width="1"/>
   </svg>
+  <app-picture-editor-panal class="panel-area"></app-picture-editor-panal>
 </div>
