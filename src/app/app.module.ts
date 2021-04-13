@@ -8,6 +8,7 @@ import { PictureEditorComponent } from './picture-editor/picture-editor.componen
 import { MatListModule } from '@angular/material/list';
 import { PictureEditorPanelDefectAreaComponent } from './picture-editor-panel-defect-area/picture-editor-panel-defect-area.component';
 import { PictureEditorPanelComponent } from './picture-editor-panel/picture-editor-panel.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,10 +19,11 @@ import { PictureEditorPanelComponent } from './picture-editor-panel/picture-edit
     PictureEditorPanelComponent,
     PictureEditorPanelDefectAreaComponent
   ],
-  imports: [
-    BrowserModule,
-    MatListModule
-  ],
+    imports: [
+        BrowserModule,
+        MatListModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

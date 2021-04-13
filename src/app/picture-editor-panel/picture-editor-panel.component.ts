@@ -11,25 +11,7 @@ export class PictureEditorPanelComponent implements OnInit {
   defectAreas: DefectArea[];
 
   constructor() {
-    this.defectAreas = [{
-      x0: 10,
-      y0: 10,
-      x1: 20,
-      y1: 20,
-      userId: 0,
-      score: 0.5,
-      state: "unchecked",
-      defectType: "type0"
-    }, {
-      x0: 30,
-      y0: 10,
-      x1: 40,
-      y1: 20,
-      userId: 0,
-      score: 0.6,
-      state: "unchecked",
-      defectType: "type0"
-    }];
+    this.defectAreas = [];
   }
 
   ngOnInit(): void {

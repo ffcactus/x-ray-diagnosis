@@ -1,32 +1,48 @@
 <div class="picture-editor">
   <svg class="svg-area" xmlns="http://www.w3.org/2000/svg"
-       [attr.width]="width" [attr.height]="height"
+       height="1000px"
+       width="1000px"
        (mouseenter)="onMouseEnter($event)"
        (mouseleave)="onMouseLeave($event)"
        (mousedown)="onMouseDown($event)"
        (mouseup)="onMouseUp()"
        (mousemove)="onMouseMove($event)"
   >
-    <image id="image" href="https://blog.logoraisr.com/content/images/size/w2000/2020/02/svg-logo-h.svg"
-           height="600" width="800"
+    <image id="image"
+           [attr.href]="imageUrl"
     ></image>
 
-    <rect *ngFor="let defectArea of defectAreas"
-          [attr.x]="defectArea.x0"
-          [attr.y]="defectArea.y0"
-          [attr.width]="defectArea.x1 - defectArea.x0"
-          [attr.height]="defectArea.y1 - defectArea.y0"
-          stroke="red"
-          fill-opacity="0"
-          stroke-width="1"/>
+    <ng-container *ngFor="let defectArea of defectAreas">
+      <g>
+        <rect *ngIf="defectArea.score > (score / 100)"
+              [attr.x]="defectArea.x0.toString() + '%'"
+              [attr.y]="defectArea.y0.toString() + '%'"
+              [attr.width]="(defectArea.x1 - defectArea.x0).toString() + '%'"
+              [attr.height]="(defectArea.y1 - defectArea.y0).toString() + '%'"
+              stroke="red"
+              fill-opacity="0"
+              stroke-width="3"><span>{{defectArea.x0}}</span></rect>
+        <text *ngIf="defectArea.score > (score / 100)"
+              [attr.x]="defectArea.x0.toString() + '%'"
+              [attr.y]="defectArea.y0.toString() + '%'">
+          {{defectAreaToString(defectArea)}}
+        </text>
+      </g>
+
+    </ng-container>
+
     <rect *ngIf="drawing"
-          [attr.x]="drawingDefectArea.x0"
-          [attr.y]="drawingDefectArea.y0"
-          [attr.width]="drawingDefectArea.width"
-          [attr.height]="drawingDefectArea.height"
+          [attr.x]="(drawingDefectArea.x0 * 100).toString()+'%'"
+          [attr.y]="(drawingDefectArea.y0 * 100).toString() + '%'"
+          [attr.width]="(drawingDefectArea.width * 100).toString() + '%'"
+          [attr.height]="(drawingDefectArea.height * 100).toString() + '%'"
           stroke="green"
           fill-opacity="0"
-          stroke-width="1"/>
+          stroke-width="3"/>
   </svg>
+  <div>
+    <input type="range" min="1" max="100" [value]="score" [(ngModel)]="score">
+    {{score}}%
+  </div>
   <app-picture-editor-panal class="panel-area"></app-picture-editor-panal>
 </div>
